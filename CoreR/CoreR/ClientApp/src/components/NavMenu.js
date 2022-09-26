@@ -62,10 +62,12 @@ export class NavMenu extends Component {
               <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
-              </NavItem>
-                        {this.logged() ? <button className="btn btn-primary" onClick={() => this.handleLogout()}>Logout</button> : <button className="btn btn-primary" onClick={() => this.handleLogin()}>Login</button>}
+            {this.logged() ?
+                <NavItem>
+                    <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
+                </NavItem>
+                :""}
+                 {this.logged() ? <button className="btn btn-primary" onClick={() => this.handleLogout()}>Logout</button> : <button className="btn btn-primary" onClick={() => this.handleLogin()}>Login</button>}
             </ul>
           </Collapse>
             </Navbar>
