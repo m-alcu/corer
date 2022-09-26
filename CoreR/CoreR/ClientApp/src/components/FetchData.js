@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MsalContext } from "@azure/msal-react";
-import { loginRequest } from "../authConfig";
+import { apiRequest } from "../authConfig";
 
 export class FetchData extends Component {
     static displayName = FetchData.name;
@@ -20,7 +20,7 @@ export class FetchData extends Component {
       const msalInstance = this.context.instance;
       const accounts = msalInstance.getAllAccounts();
         msalInstance.acquireTokenSilent({
-            ...loginRequest,
+            ...apiRequest,
             account: accounts[0]
         }).then((response) => {
             this.populateWeatherData(response.accessToken);

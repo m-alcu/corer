@@ -12,10 +12,10 @@ import { LogLevel } from "@azure/msal-browser";
  */
 export const msalConfig = {
     auth: {
-        //clientId: "f1eca3aa-ad43-4224-bdc7-fa8b7ae5b003",
-        clientId: "e132920e-0b69-4431-87d0-2aee1d046913",
+        clientId: "f1eca3aa-ad43-4224-bdc7-fa8b7ae5b003",
         authority: "https://login.microsoftonline.com/28be9bb1-d932-4323-9d48-0e662c6549e7",
-        redirectUri: "https://localhost:3050/"
+        //redirectUri: "https://localhost:3050/"
+        redirectUri: "https://lomap2.azurewebsites.net/"
     },
     cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored
@@ -53,12 +53,11 @@ export const msalConfig = {
  * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
  */
 export const loginRequest = {
-    //scopes: ["User.Read"]
-    scopes: ["api://df3b930d-44ff-4d6b-aafb-7e45ba3d56f0/access_as_user"]
+    scopes: ["User.Read"]
 };
 
-export const graphRequest = {
-    scopes: ["User.Read"]
+export const apiRequest = {
+    scopes: ["api://df3b930d-44ff-4d6b-aafb-7e45ba3d56f0/access_as_user"]
 };
 
 /**

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MsalContext } from "@azure/msal-react";
-import { graphRequest } from "../authConfig";
+import { loginRequest } from "../authConfig";
 import { graphConfig } from "../authConfig";
 
 export class UserInfo extends Component {
@@ -22,7 +22,7 @@ export class UserInfo extends Component {
       const msalInstance = this.context.instance;
       const accounts = msalInstance.getAllAccounts();
         msalInstance.acquireTokenSilent({
-            ...graphRequest,
+            ...loginRequest,
             account: accounts[0]
         }).then((response) => {
             this.callMsGraph(response.accessToken);
