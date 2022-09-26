@@ -64,6 +64,11 @@ export class NavMenu extends Component {
               </NavItem>
             {this.logged() ?
                 <NavItem>
+                    <NavLink tag={Link} className="text-dark" to="/user-info">User info</NavLink>
+                </NavItem>
+                : ""}
+            {this.logged() ?
+                <NavItem>
                     <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
                 </NavItem>
                 :""}
