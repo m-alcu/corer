@@ -1,15 +1,30 @@
 import React, { Component } from 'react';
+import { MsalContext } from "@azure/msal-react";
+import { loginRequest } from "../authConfig";
 
 export class FetchData extends Component {
-  static displayName = FetchData.name;
+    static displayName = FetchData.name;
+    static contextType = MsalContext;
 
   constructor(props) {
     super(props);
     this.state = { forecasts: [], loading: true };
   }
 
-  componentDidMount() {
-    this.populateWeatherData();
+    componentDidMount() {
+        this.requestData();
+        //this.populateWeatherData();
+    }
+
+  requestData() {
+      const msalInstance = this.context.instance;
+      const accounts = msalInstance.getAllAccounts();
+        msalInstance.acquireTokenSilent({
+            ...loginRequest,
+            account: accounts[0]
+        }).then((response) => {
+            this.populateWeatherData(response.accessToken);
+        });
   }
 
   static renderForecastsTable(forecasts) {
@@ -51,9 +66,20 @@ export class FetchData extends Component {
     );
   }
 
-  async populateWeatherData() {
-    const response = await fetch('weatherforecast');
-    const data = await response.json();
-    this.setState({ forecasts: data, loading: false });
+    async populateWeatherData(accessToken) {
+
+      const headers = new Headers();
+      const bearer = `Bearer ${accessToken}`;
+
+      headers.append("Authorization", bearer);
+
+      const options = {
+          method: "GET",
+          headers: headers
+      };
+
+      const response = await fetch('weatherforecast', options);
+      const data = await response.json();
+      this.setState({ forecasts: data, loading: false });
   }
 }

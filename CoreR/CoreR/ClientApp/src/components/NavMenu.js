@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import './NavMenu.css';
 import { MsalContext } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";
-import { useIsAuthenticated } from "@azure/msal-react";
 
 export class NavMenu extends Component {
     static displayName = NavMenu.name;
