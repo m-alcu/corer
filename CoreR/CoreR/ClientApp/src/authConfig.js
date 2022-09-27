@@ -12,10 +12,11 @@ import { LogLevel } from "@azure/msal-browser";
  */
 export const msalConfig = {
     auth: {
-        clientId: "f1eca3aa-ad43-4224-bdc7-fa8b7ae5b003",
-        authority: "https://login.microsoftonline.com/28be9bb1-d932-4323-9d48-0e662c6549e7",
+        //clientId: "40c8325f-c8de-4398-ac90-a946c8fdf8cf",
+        clientId: "1e0a3dc8-f206-4b6a-9099-ff6ca5d8b867",
+        authority: "https://login.microsoftonline.com/556e6b1f-b49d-4278-8baf-db06eeefc8e9",
         //redirectUri: "https://localhost:3050/"
-        redirectUri: "https://lomap2.azurewebsites.net/"
+        redirectUri: "https://lomapweb.azurewebsites.net/"
     },
     cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored
@@ -57,7 +58,7 @@ export const loginRequest = {
 };
 
 export const apiRequest = {
-    scopes: ["api://df3b930d-44ff-4d6b-aafb-7e45ba3d56f0/access_as_user"]
+    scopes: ["api://1e0a3dc8-f206-4b6a-9099-ff6ca5d8b867/access_as_user"]
 };
 
 /**
