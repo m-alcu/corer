@@ -13,10 +13,10 @@ import { LogLevel } from "@azure/msal-browser";
 export const msalConfig = {
     auth: {
         //clientId: "40c8325f-c8de-4398-ac90-a946c8fdf8cf",
-        clientId: "1e0a3dc8-f206-4b6a-9099-ff6ca5d8b867",
+        clientId: "40c8325f-c8de-4398-ac90-a946c8fdf8cf",
         authority: "https://login.microsoftonline.com/556e6b1f-b49d-4278-8baf-db06eeefc8e9",
-        //redirectUri: "https://localhost:3050/"
-        redirectUri: "https://lomapweb.azurewebsites.net/"
+        redirectUri: "https://localhost:3050/"
+        //redirectUri: "https://lomapweb.azurewebsites.net/"
     },
     cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored

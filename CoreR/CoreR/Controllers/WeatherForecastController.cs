@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
+using System.Security.Claims;
 
 namespace CoreR.Controllers
 {
@@ -25,6 +27,9 @@ namespace CoreR.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            string headerKey = "Authorization";
+            Request.Headers.TryGetValue(headerKey, out var headerValue);
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
